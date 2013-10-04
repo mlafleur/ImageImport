@@ -111,6 +111,7 @@ namespace Image_Importer
         {
 
 #if DEBUG
+            this.UnhandledException += App_UnhandledException;
             if (System.Diagnostics.Debugger.IsAttached)
             {
                 this.DebugSettings.EnableFrameRateCounter = true;
@@ -151,6 +152,12 @@ namespace Image_Importer
             Window.Current.Activate();
         }
 
+        void App_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            
+            System.Diagnostics.Debugger.Launch();
+        }
+
         /// <summary>
         /// Invoked when application execution is being suspended.  Application state is saved
         /// without knowing whether the application will be terminated or resumed with the contents
@@ -164,5 +171,7 @@ namespace Image_Importer
             //TODO: Save application state and stop any background activity
             deferral.Complete();
         }
+
+        
     }
 }

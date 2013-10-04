@@ -21,14 +21,14 @@ namespace Image_Importer.Model
         }
 
         public async Task Refresh()
-        {            
+        {
             // Get a collection of storage devices
-            DeviceInformationCollection dic = await DeviceInformation.FindAllAsync(StorageDevice.GetDeviceSelector());            
+            DeviceInformationCollection dic = await DeviceInformation.FindAllAsync(StorageDevice.GetDeviceSelector());
             // The above query returens a lot of stuff that isn't valid. 
             // A SD card being used for ReadyBoost for example. We'll weed down the list a bit more
             // by cross-referensing it with a list of the MTP devices that are valid storeage media
             DeviceInformationCollection mtpDevices = await DeviceInformation.FindAllAsync(ServiceDevice.GetDeviceSelectorFromServiceId(new Guid("6BDD1FC6-810F-11D0-BEC7-08002BE2092F")));
-            
+
             // Get a hash of the MTP devices to quickly validate in the next section
             var mtpHash = new HashSet<String>(from device in mtpDevices select device.Name as string);
 
@@ -74,18 +74,37 @@ namespace Image_Importer.Model
 
             public async Task Refresh()
             {
-                await LoadFromFolder(StorageDevice.FromId(DeviceId));
+                try
+                {
+                    await LoadFromFolder(StorageDevice.FromId(DeviceId));
+                }
+                catch
+                {
+#if DEBUG
+                    System.Diagnostics.Debugger.Launch();
+#endif
+                }
                 return;
             }
 
             public async Task LoadFromFolder(StorageFolder folder)
             {
-                Windows.Storage.Search.QueryOptions queryOptions = new Windows.Storage.Search.QueryOptions();
-                queryOptions.FolderDepth = Windows.Storage.Search.FolderDepth.Deep;
-                var query = folder.CreateFileQueryWithOptions(queryOptions);
+                try
+                {
+                    Windows.Storage.Search.QueryOptions queryOptions = new Windows.Storage.Search.QueryOptions();
+                    queryOptions.FolderDepth = Windows.Storage.Search.FolderDepth.Deep;
+                    var query = folder.CreateFileQueryWithOptions(queryOptions);
 
-                FileInformationFactory fileFactory = new FileInformationFactory(query, Windows.Storage.FileProperties.ThumbnailMode.PicturesView, 900);
-                Items = await fileFactory.GetFilesAsync();
+                    FileInformationFactory fileFactory = new FileInformationFactory(query, Windows.Storage.FileProperties.ThumbnailMode.PicturesView, 900);
+                    Items = await fileFactory.GetFilesAsync();
+                }
+                catch
+                {
+#if DEBUG
+                    System.Diagnostics.Debugger.Launch();
+#endif
+                }
+
             }
         }
     }
@@ -97,7 +116,7 @@ namespace Image_Importer.Model
             for (int i = 0; i < 10; i++)
             {
                 this.Items.Add(new ImageDevice() { Title = "Device " + i.ToString(), DeviceId = i.ToString(), Subtitle = i.ToString() + " Files", Image = new BitmapImage(new Uri("ms-appx://Assets/SplashScreen.scale-100.png")) });
- 
+
             }
         }
     }
