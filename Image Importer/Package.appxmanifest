@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
+  <Identity Name="4a29168a-a7e5-4d32-a88f-ed2f0c0d3cec" Publisher="CN=Marc" Version="1.0.0.0" />
+  <Properties>
+    <DisplayName>Image Importer</DisplayName>
+    <PublisherDisplayName>Marc</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.3.0</OSMinVersion>
+    <OSMaxVersionTested>6.3.0</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="Image_Importer.App">
+      <m2:VisualElements DisplayName="Image Importer" Square150x150Logo="Assets\Logo.png" Square30x30Logo="Assets\SmallLogo.png" Description="Image Importer" ForegroundText="light" BackgroundColor="#83C1FF">
+        <m2:DefaultTile ShortName="Image Importer" DefaultSize="wide310x150Logo" Wide310x150Logo="Assets\WideLogo.png">
+          <m2:ShowNameOnTiles>
+            <m2:ShowOn Tile="square150x150Logo" />
+            <m2:ShowOn Tile="wide310x150Logo" />
+          </m2:ShowNameOnTiles>
+        </m2:DefaultTile>
+        <m2:SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#83C1FF" />
+      </m2:VisualElements>
+      <Extensions>
+        <Extension Category="windows.fileTypeAssociation">
+          <FileTypeAssociation Name="jpg">
+            <Logo>Assets\Icon.png</Logo>
+            <SupportedFileTypes>
+              <FileType>.jpg</FileType>
+            </SupportedFileTypes>
+          </FileTypeAssociation>
+        </Extension>
+        <Extension Category="windows.fileTypeAssociation">
+          <FileTypeAssociation Name="jpeg">
+            <Logo>Assets\Icon.png</Logo>
+            <SupportedFileTypes>
+              <FileType>.jpeg</FileType>
+            </SupportedFileTypes>
+          </FileTypeAssociation>
+        </Extension>
+        <Extension Category="windows.fileTypeAssociation">
+          <FileTypeAssociation Name="cr2">
+            <Logo>Assets\Icon.png</Logo>
+            <SupportedFileTypes>
+              <FileType>.cr2</FileType>
+            </SupportedFileTypes>
+          </FileTypeAssociation>
+        </Extension>
+        <Extension Category="windows.fileTypeAssociation">
+          <FileTypeAssociation Name="arw">
+            <Logo>Assets\Icon.png</Logo>
+            <SupportedFileTypes>
+              <FileType>.arw</FileType>
+            </SupportedFileTypes>
+          </FileTypeAssociation>
+        </Extension>
+        <Extension Category="windows.fileTypeAssociation">
+          <FileTypeAssociation Name="crw">
+            <Logo>Assets\Icon.png</Logo>
+            <SupportedFileTypes>
+              <FileType>.crw</FileType>
+            </SupportedFileTypes>
+          </FileTypeAssociation>
+        </Extension>
+        <Extension Category="windows.fileTypeAssociation">
+          <FileTypeAssociation Name="nrw">
+            <Logo>Assets\Icon.png</Logo>
+            <SupportedFileTypes>
+              <FileType>.nrw</FileType>
+            </SupportedFileTypes>
+          </FileTypeAssociation>
+        </Extension>
+        <Extension Category="windows.fileTypeAssociation">
+          <FileTypeAssociation Name="orf">
+            <Logo>Assets\Icon.png</Logo>
+            <SupportedFileTypes>
+              <FileType>.orf</FileType>
+            </SupportedFileTypes>
+          </FileTypeAssociation>
+        </Extension>
+        <Extension Category="windows.fileTypeAssociation">
+          <FileTypeAssociation Name="raw">
+            <Logo>Assets\Icon.png</Logo>
+            <SupportedFileTypes>
+              <FileType>.raw</FileType>
+            </SupportedFileTypes>
+          </FileTypeAssociation>
+        </Extension>
+        <Extension Category="windows.autoPlayContent">
+          <AutoPlayContent>
+            <LaunchAction Verb="import" ActionDisplayName="Import Photos" ContentEvent="ShowPicturesOnArrival" />
+          </AutoPlayContent>
+        </Extension>
+        <Extension Category="windows.autoPlayDevice">
+          <AutoPlayDevice>
+            <LaunchAction Verb="importdevice" ActionDisplayName="Import Photos" DeviceEvent="WPD\ImageSource" />
+          </AutoPlayDevice>
+        </Extension>
+      </Extensions>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+    <Capability Name="removableStorage" />
+    <Capability Name="picturesLibrary" />
+  </Capabilities>
+</Package>

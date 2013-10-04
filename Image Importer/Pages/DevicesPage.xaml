@@ -1,0 +1,107 @@
+﻿<Page xmlns:UI="using:Microsoft.Advertising.WinRT.UI" 
+    x:Name="pageRoot"
+    x:Class="Image_Importer.Pages.DevicesPage"
+    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Image_Importer.Pages"
+    xmlns:common="using:Image_Importer.Common"
+    xmlns:model="using:Image_Importer.Model"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <x:String x:Key="ChevronGlyph">&#xE26B;</x:String>
+
+        <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
+        <x:String x:Key="AppName">Photo Importer</x:String>
+
+        <CollectionViewSource
+        x:Name="itemsViewSource"
+        Source="{Binding Items}"
+        d:Source="{Binding Items, Source={d:DesignInstance IsDesignTimeCreatable=True, Type=model:DevicesViewModel_DesignTime}}"                         />
+
+    </Page.Resources>
+
+    <!--
+        This grid acts as a root panel for the page.
+    -->
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+
+        <Hub>
+            <Hub.Header>
+                <!-- Back button and page title -->
+                <Grid>
+                    <TextBlock x:Name="pageTitle" Text="{StaticResource AppName}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
+                        IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Top"/>
+                </Grid>
+            </Hub.Header>
+
+            <HubSection Width="440" Margin="0,0,0,0" Background="#FF313A42" >
+                <DataTemplate>
+                    <Grid>
+                    <StackPanel Margin="0,0,0,0">
+                        <TextBlock 
+                            Text="To the right you will find a list of Available Devices. These are devices (memory cards, cameras, phones) where we have found Photos to be imported. To begin, select the device you wish to import from." 
+                            FontSize="14" TextWrapping="WrapWholeWords" CharacterSpacing="10" Margin="0,20" />
+
+                        <TextBlock Text="If you don't find your device listed, please check the connection and refresh using the button below." FontSize="14" TextWrapping="WrapWholeWords" CharacterSpacing="10" />
+                            <Button  Style="{StaticResource AppBarButtonStyle}" Content="&#xE117;"
+                                 VerticalAlignment="Center" AutomationProperties.Name="Refresh Devices"
+                                 AutomationProperties.AutomationId="RefreshButton" HorizontalAlignment="Center" Foreground="#FF83C1FF" Click="Button_Click" />
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </HubSection>
+
+            <HubSection Header="Available Devices">
+                <DataTemplate>
+                    <Grid>
+                        <GridView x:Name="itemGridView"
+                                  AutomationProperties.AutomationId="ItemsGridView"
+                                  AutomationProperties.Name="Items"
+                                  TabIndex="1"
+                                  Grid.RowSpan="2"
+                                  IsItemClickEnabled="True"
+                                  ItemClick="itemGridView_ItemClick"
+                                  ItemsSource="{Binding Source={StaticResource itemsViewSource}}"
+                                  SelectionMode="None"
+                                  IsSwipeEnabled="false">
+                            <GridView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid HorizontalAlignment="Left" Width="400" Height="100">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="100"/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <Border Background="#FF3688CD">
+                                            <Image Source="{Binding Image}" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}" Margin="10"/>
+                                        </Border>
+                                        <StackPanel Background="#FF0877D4" Grid.Column="1">
+                                            <TextBlock Text="{Binding Title}" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Margin="15,10,15,0" Style="{StaticResource SubheaderTextBlockStyle}"/>
+                                            <TextBlock Text="{Binding Subtitle}" Foreground="{StaticResource ListViewItemOverlaySecondaryForegroundThemeBrush}" TextWrapping="NoWrap" Margin="15,0,15,10" Style="{StaticResource CaptionTextBlockStyle}"/>
+                                        </StackPanel>
+                                    </Grid>
+                                </DataTemplate>
+                            </GridView.ItemTemplate>
+                        </GridView>
+                    </Grid>
+                </DataTemplate>
+            </HubSection>
+
+            <HubSection>
+                <DataTemplate>
+                    <Grid>
+                        <UI:AdControl ApplicationId="d25517cb-12d4-4699-8bdc-52040c712cab" AdUnitId="145868" Height="600" Width="300"/>
+                    </Grid>
+                </DataTemplate>
+            </HubSection>
+        </Hub>
+    </Grid>
+</Page>
