@@ -53,7 +53,7 @@ namespace Image_Importer.Model
                 var thumb = await item.GetGlyphThumbnailAsync();
                 bitmapImage.SetSource(thumb);
 
-                var imageDevice = new ImageDevice() { Title = folder.DisplayName, Image = bitmapImage, DeviceId = item.Id };
+                var imageDevice = new ImageDevice() { Title = folder.DisplayName, Image = bitmapImage, DeviceId = item.Id, Folder = folder };
                 await imageDevice.Refresh();
                 imageDevice.Subtitle = imageDevice.Items.Count.ToString() + " Images Found";
 
@@ -70,13 +70,19 @@ namespace Image_Importer.Model
             public BitmapImage Image { get; set; }
             public string DeviceId { get; set; }
 
+            public StorageFolder Folder { get; set; }
+
             public IReadOnlyList<FileInformation> Items { get; set; }
 
             public async Task Refresh()
             {
                 try
                 {
-                    await LoadFromFolder(StorageDevice.FromId(DeviceId));
+                    if (Folder != null)
+                        await LoadFromFolder(Folder);
+                    else
+
+                        await LoadFromFolder(StorageDevice.FromId(DeviceId));
                 }
                 catch
                 {

@@ -57,7 +57,8 @@ namespace Image_Importer
             {
                 Model.DevicesViewModel.ImageDevice imageDevice = new Model.DevicesViewModel.ImageDevice();
                 imageDevice.Title = args.Files[0].Path;
-                await imageDevice.LoadFromFolder((Windows.Storage.StorageFolder)args.Files[0]);
+                imageDevice.Folder = (Windows.Storage.StorageFolder)args.Files[0];
+                await imageDevice.Refresh();
 
                 rootFrame.Navigate(typeof(Pages.FilesPage), imageDevice);
             }
@@ -89,7 +90,9 @@ namespace Image_Importer
                 {
                     Model.DevicesViewModel.ImageDevice imageDevice = new Model.DevicesViewModel.ImageDevice();
                     imageDevice.Title = Windows.Devices.Portable.StorageDevice.FromId(deviceArgs.DeviceInformationId).Name;
-                    await imageDevice.LoadFromFolder(Windows.Devices.Portable.StorageDevice.FromId(deviceArgs.DeviceInformationId));
+                    imageDevice.Folder = Windows.Devices.Portable.StorageDevice.FromId(deviceArgs.DeviceInformationId);
+                    await imageDevice.Refresh();
+
 
                     rootFrame.Navigate(typeof(Pages.FilesPage), imageDevice);
                 }
