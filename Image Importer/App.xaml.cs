@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -7,6 +8,7 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.ApplicationSettings;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -103,7 +105,18 @@ namespace Image_Importer
             base.OnActivated(args);
         }
 
-        
+        public void onCommandsRequested(SettingsPane settingsPane, SettingsPaneCommandsRequestedEventArgs eventArgs)
+        {
+            SettingsCommand aboutCommand = new SettingsCommand("mainSettings", "Import Settings", (x) =>
+            {
+                SettingsFlyout flyout = new SettingsFlyout();
+                flyout.Content = new SettingsMain();
+                flyout.Title = "Import Settings";
+                flyout.Background = new SolidColorBrush(Windows.UI.Colors.DarkGray);
+                flyout.Show();
+            });
+            eventArgs.Request.ApplicationCommands.Add(aboutCommand);
+        }
 
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points
@@ -151,6 +164,9 @@ namespace Image_Importer
                     throw new Exception("Failed to create initial page");
                 }
             }
+
+            SettingsPane.GetForCurrentView().CommandsRequested += onCommandsRequested;
+
             // Ensure the current window is active
             Window.Current.Activate();
         }

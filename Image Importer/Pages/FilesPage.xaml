@@ -60,38 +60,24 @@
             </Hub.Header>
 
             <HubSection Width="440" Margin="0,0,0,0" Background="#FF313A42" x:Name="HubSection1">
-                <HubSection.DataContext>
-                    <model:ImportOptions/>
-                </HubSection.DataContext>
                 <DataTemplate>
                     <StackPanel Margin="0,0,0,0">
                         <TextBlock 
-							Text="To the right you will find all of the images on the selected device. You may either manually select the images you want to import or simply click the Import All button below." 
+							Text="To the right you will find all of the images on the selected device. You may either manually select the images you want to import or simply click the Import button below to import them all." 
 							FontSize="14" TextWrapping="WrapWholeWords" CharacterSpacing="10" Margin="0,20" />
 
                         <!--<TextBlock Text="If you don't find your device listed, please check the connection and refresh using the button below." FontSize="14" TextWrapping="WrapWholeWords" CharacterSpacing="10" />-->
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
-                            <Button  Style="{StaticResource AppBarButtonStyle}" Content="&#xE1AE;"
-								AutomationProperties.Name="Import All" Foreground="#FF83C1FF" Click="ImportAll_Click" />
+                            <Button  Style="{StaticResource AppBarButtonStyle}" Content="&#xE183;"
+								AutomationProperties.Name="Import" Foreground="#FF83C1FF" Click="ImportAll_Click" />
 
-                            <Button  Style="{StaticResource AppBarButtonStyle}" Content="&#xE1AD;"
-								AutomationProperties.Name="Import Selected" Foreground="#FF83C1FF" Click="ImportSelected_Click" />
-                        </StackPanel>
-
-
-                        <StackPanel Margin="0,30,0,10">
-                            <TextBlock Text="Organize Imported Files by" FontSize="18" Margin="0,0,0,5"/>
-                            <ComboBox SelectionChanged="ComboBox_SelectionChanged" 
-								ItemsSource="{Binding OrgRuleOptions, Mode=OneWay}" DisplayMemberPath="Value" SelectedValuePath="Key" SelectedIndex="-1" SelectedValue="{Binding OrganizationRule, Mode=TwoWay}" />
-                        </StackPanel>
-
-
-                        <StackPanel Margin="0,20,0,10">
-                            <CheckBox Content="Remove From Device After Importing" VerticalAlignment="Stretch" IsChecked="{Binding RemoveSourceFile, Mode=TwoWay}"/>
+                            <Button  Style="{StaticResource AppBarButtonStyle}" Content="&#xE115;"
+								AutomationProperties.Name="Settings" Foreground="#FF83C1FF" Click="Settings_Click" />
 
                         </StackPanel>
 
-                        
+
+
 
                     </StackPanel>
                 </DataTemplate>
@@ -120,7 +106,7 @@
                     </Grid>
                 </DataTemplate>
             </HubSection>
-            
+
             <HubSection>
                 <DataTemplate>
                     <Grid>

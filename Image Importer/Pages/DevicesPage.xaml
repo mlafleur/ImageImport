@@ -15,7 +15,7 @@
         <x:String x:Key="ChevronGlyph">&#xE26B;</x:String>
 
         <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
-        <x:String x:Key="AppName">Photo Importer</x:String>
+        <x:String x:Key="AppName">Image Importer</x:String>
 
         <CollectionViewSource
         x:Name="itemsViewSource"

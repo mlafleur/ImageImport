@@ -26,58 +26,14 @@
       </m2:VisualElements>
       <Extensions>
         <Extension Category="windows.fileTypeAssociation">
-          <FileTypeAssociation Name="jpg">
+          <FileTypeAssociation Name="image">
             <Logo>Assets\Icon.png</Logo>
             <SupportedFileTypes>
               <FileType>.jpg</FileType>
-            </SupportedFileTypes>
-          </FileTypeAssociation>
-        </Extension>
-        <Extension Category="windows.fileTypeAssociation">
-          <FileTypeAssociation Name="jpeg">
-            <Logo>Assets\Icon.png</Logo>
-            <SupportedFileTypes>
               <FileType>.jpeg</FileType>
-            </SupportedFileTypes>
-          </FileTypeAssociation>
-        </Extension>
-        <Extension Category="windows.fileTypeAssociation">
-          <FileTypeAssociation Name="cr2">
-            <Logo>Assets\Icon.png</Logo>
-            <SupportedFileTypes>
-              <FileType>.cr2</FileType>
-            </SupportedFileTypes>
-          </FileTypeAssociation>
-        </Extension>
-        <Extension Category="windows.fileTypeAssociation">
-          <FileTypeAssociation Name="arw">
-            <Logo>Assets\Icon.png</Logo>
-            <SupportedFileTypes>
-              <FileType>.arw</FileType>
-            </SupportedFileTypes>
-          </FileTypeAssociation>
-        </Extension>
-        <Extension Category="windows.fileTypeAssociation">
-          <FileTypeAssociation Name="crw">
-            <Logo>Assets\Icon.png</Logo>
-            <SupportedFileTypes>
-              <FileType>.crw</FileType>
-            </SupportedFileTypes>
-          </FileTypeAssociation>
-        </Extension>
-        <Extension Category="windows.fileTypeAssociation">
-          <FileTypeAssociation Name="nrw">
-            <Logo>Assets\Icon.png</Logo>
-            <SupportedFileTypes>
-              <FileType>.nrw</FileType>
-            </SupportedFileTypes>
-          </FileTypeAssociation>
-        </Extension>
-        <Extension Category="windows.fileTypeAssociation">
-          <FileTypeAssociation Name="orf">
-            <Logo>Assets\Icon.png</Logo>
-            <SupportedFileTypes>
-              <FileType>.orf</FileType>
+              <FileType>.tiff</FileType>
+              <FileType>.png</FileType>
+              <FileType>.bmp</FileType>
             </SupportedFileTypes>
           </FileTypeAssociation>
         </Extension>
@@ -85,7 +41,12 @@
           <FileTypeAssociation Name="raw">
             <Logo>Assets\Icon.png</Logo>
             <SupportedFileTypes>
+              <FileType>.cr2</FileType>
+              <FileType>.arw</FileType>
               <FileType>.raw</FileType>
+              <FileType>.orf</FileType>
+              <FileType>.crw</FileType>
+              <FileType>.nrw</FileType>
             </SupportedFileTypes>
           </FileTypeAssociation>
         </Extension>

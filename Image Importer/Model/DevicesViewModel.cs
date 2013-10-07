@@ -102,7 +102,9 @@ namespace Image_Importer.Model
                     var query = folder.CreateFileQueryWithOptions(queryOptions);
 
                     FileInformationFactory fileFactory = new FileInformationFactory(query, Windows.Storage.FileProperties.ThumbnailMode.PicturesView, 900);
+
                     Items = await fileFactory.GetFilesAsync();
+
                 }
                 catch
                 {
@@ -113,6 +115,7 @@ namespace Image_Importer.Model
 
             }
         }
+
     }
 
     public class DevicesViewModel_DesignTime : DevicesViewModel
