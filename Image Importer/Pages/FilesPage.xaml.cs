@@ -120,7 +120,9 @@ namespace Image_Importer.Pages
             foreach (var item in photoGridInstance.SelectedItems)
             {
                 var fileInfo = item as Windows.Storage.BulkAccess.FileInformation;
+                var file = Windows.Storage.StorageFile.GetFileFromPathAsync(fileInfo.Path);
 
+                var props = await fileInfo.Properties.GetImagePropertiesAsync();
                 if (appSettings.OrgRule == "%DateTaken%")
                 {
                     /* In some case I've found images that don't have complete DateTake data. When this happens we go with date created */
@@ -141,6 +143,8 @@ namespace Image_Importer.Pages
 
                 try
                 {
+                    fileInfo.ImageProperties.Title = string.Empty;
+                    await fileInfo.ImageProperties.SavePropertiesAsync();
                     if (appSettings.MoveSourceFiles)
                         await fileInfo.MoveAsync(destinationFolder, fileInfo.Name, Windows.Storage.NameCollisionOption.GenerateUniqueName);
                     else

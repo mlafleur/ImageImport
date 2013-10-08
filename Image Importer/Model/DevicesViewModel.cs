@@ -97,10 +97,11 @@ namespace Image_Importer.Model
             {
                 try
                 {
+                    
                     Windows.Storage.Search.QueryOptions queryOptions = new Windows.Storage.Search.QueryOptions();
                     queryOptions.FolderDepth = Windows.Storage.Search.FolderDepth.Deep;
                     var query = folder.CreateFileQueryWithOptions(queryOptions);
-
+                    var files = await folder.GetFilesAsync();
                     FileInformationFactory fileFactory = new FileInformationFactory(query, Windows.Storage.FileProperties.ThumbnailMode.PicturesView, 900);
 
                     Items = await fileFactory.GetFilesAsync();
