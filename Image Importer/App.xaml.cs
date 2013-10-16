@@ -105,6 +105,7 @@ namespace Image_Importer
             base.OnActivated(args);
         }
 
+        #region Settings Page
         public void onCommandsRequested(SettingsPane settingsPane, SettingsPaneCommandsRequestedEventArgs eventArgs)
         {
             SettingsCommand aboutCommand = new SettingsCommand("mainSettings", "Import Settings", (x) =>
@@ -116,7 +117,16 @@ namespace Image_Importer
                 flyout.Show();
             });
             eventArgs.Request.ApplicationCommands.Add(aboutCommand);
+
+
+            SettingsCommand privacyCommand = new SettingsCommand("privacyCommand", "Privacy Policy", (x) => 
+            {
+                Uri location = new Uri("http://massivescale.com/pages/apps/image-importer/image-importer-privacy-policy/");
+                Windows.System.Launcher.LaunchUriAsync(location);
+            });
+            eventArgs.Request.ApplicationCommands.Add(privacyCommand);
         }
+        #endregion
 
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points
