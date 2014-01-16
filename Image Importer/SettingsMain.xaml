@@ -1,41 +1,46 @@
-﻿<UserControl
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Image_Importer"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:Model="using:Image_Importer.Model"
-    x:Class="Image_Importer.SettingsMain"
-    mc:Ignorable="d"
-    d:DesignHeight="600"
-    d:DesignWidth="267">
+﻿<UserControl xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:Image_Importer"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:Model="using:Image_Importer.Model"
+             x:Class="Image_Importer.SettingsMain"
+             mc:Ignorable="d"
+             d:DesignHeight="600"
+             d:DesignWidth="267">
 
     <UserControl.DataContext>
-        <Model:AppSettings/>
+        <Model:AppSettings />
     </UserControl.DataContext>
-    
+
     <UserControl.Resources>
-        
     </UserControl.Resources>
 
     <Grid Background="DarkGray">
         <StackPanel>
             <StackPanel Margin="0,15,0,0">
-                <TextBlock Text="Store Imported Files by"  Margin="0,0,0,5" FontSize="14"/>
-                <ComboBox ItemsSource="{Binding OrgRuleOptions, Mode=OneWay}"  
+                <TextBlock Text="Store Imported Files by"
+                           Margin="0,0,0,5"
+                           FontSize="14" />
+                <ComboBox ItemsSource="{Binding OrgRuleOptions, Mode=OneWay}"
                           FontSize="14"
-                            DisplayMemberPath="Value" 
-                            SelectedValuePath="Key" 
-                            SelectedValue="{Binding OrgRule, Mode=TwoWay}" />
+                          DisplayMemberPath="Value"
+                          SelectedValuePath="Key"
+                          SelectedValue="{Binding OrgRule, Mode=TwoWay}" />
             </StackPanel>
 
             <StackPanel Margin="0,20,0,10">
-                <CheckBox Content="Remove Files After Importing"  FontSize="14"
-                          IsChecked="{Binding MoveSourceFiles, Mode=TwoWay}"/>
+                <ToggleSwitch IsOn="{Binding MoveSourceFiles, Mode=TwoWay}"
+                              OnContent="On"
+                              OffContent="Off"
+                              Header="Remove Files After Import" />
+                <ToggleSwitch IsOn="{Binding ShowAllDevices, Mode=TwoWay}"
+                              OnContent="On"
+                              OffContent="Off"
+                              Header="Show All Devices" />
             </StackPanel>
-            
+
             <StackPanel>
-                
             </StackPanel>
         </StackPanel>
     </Grid>

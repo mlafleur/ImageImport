@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -52,7 +51,7 @@ namespace Image_Importer
 
             if (args.Verb == "open")
             {
-                rootFrame.Navigate(typeof(Pages.SingleImagePage), args.Files[0]);                
+                rootFrame.Navigate(typeof(Pages.SingleImagePage), args.Files[0]);
             }
 
             if (args.Verb == "import")
@@ -95,7 +94,6 @@ namespace Image_Importer
                     imageDevice.Folder = Windows.Devices.Portable.StorageDevice.FromId(deviceArgs.DeviceInformationId);
                     await imageDevice.Refresh();
 
-
                     rootFrame.Navigate(typeof(Pages.FilesPage), imageDevice);
                 }
             }
@@ -106,6 +104,7 @@ namespace Image_Importer
         }
 
         #region Settings Page
+
         public void onCommandsRequested(SettingsPane settingsPane, SettingsPaneCommandsRequestedEventArgs eventArgs)
         {
             SettingsCommand aboutCommand = new SettingsCommand("mainSettings", "Import Settings", (x) =>
@@ -118,15 +117,15 @@ namespace Image_Importer
             });
             eventArgs.Request.ApplicationCommands.Add(aboutCommand);
 
-
-            SettingsCommand privacyCommand = new SettingsCommand("privacyCommand", "Privacy Policy", (x) => 
+            SettingsCommand privacyCommand = new SettingsCommand("privacyCommand", "Privacy Policy", (x) =>
             {
                 Uri location = new Uri("http://massivescale.com/pages/apps/image-importer/image-importer-privacy-policy/");
-                Windows.System.Launcher.LaunchUriAsync(location);
+                var ignore = Windows.System.Launcher.LaunchUriAsync(location);
             });
             eventArgs.Request.ApplicationCommands.Add(privacyCommand);
         }
-        #endregion
+
+        #endregion Settings Page
 
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points
@@ -135,7 +134,6 @@ namespace Image_Importer
         /// <param name="e">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
-
 #if DEBUG
             this.UnhandledException += App_UnhandledException;
             if (System.Diagnostics.Debugger.IsAttached)
@@ -181,9 +179,8 @@ namespace Image_Importer
             Window.Current.Activate();
         }
 
-        void App_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        private void App_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
-            
             System.Diagnostics.Debugger.Launch();
         }
 
@@ -200,7 +197,5 @@ namespace Image_Importer
             //TODO: Save application state and stop any background activity
             deferral.Complete();
         }
-
-        
     }
 }

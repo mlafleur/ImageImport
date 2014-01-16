@@ -34,7 +34,7 @@ namespace Image_Importer.Pages
         }
 
         /// <summary>
-        /// NavigationHelper is used on each page to aid in navigation and 
+        /// NavigationHelper is used on each page to aid in navigation and
         /// process lifetime management
         /// </summary>
         public NavigationHelper NavigationHelper
@@ -48,7 +48,6 @@ namespace Image_Importer.Pages
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += navigationHelper_LoadState;
         }
-
 
         /// <summary>
         /// Populates the page with content passed during navigation.  Any saved state is also
@@ -68,20 +67,23 @@ namespace Image_Importer.Pages
 
         private async void Refresh()
         {
+            this.DefaultViewModel["Items"] = new List<string>();
+            PBar.Visibility = Windows.UI.Xaml.Visibility.Visible;
             Model.DevicesViewModel viewModel = new Model.DevicesViewModel();
             await viewModel.Refresh();
             this.DefaultViewModel["Items"] = viewModel.Items;
+            PBar.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
         }
 
         #region NavigationHelper registration
 
         /// The methods provided in this section are simply used to allow
         /// NavigationHelper to respond to the page's navigation methods.
-        /// 
-        /// Page specific logic should be placed in event handlers for the  
+        ///
+        /// Page specific logic should be placed in event handlers for the
         /// <see cref="GridCS.Common.NavigationHelper.LoadState"/>
         /// and <see cref="GridCS.Common.NavigationHelper.SaveState"/>.
-        /// The navigation parameter is available in the LoadState method 
+        /// The navigation parameter is available in the LoadState method
         /// in addition to page state preserved during an earlier session.
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -94,7 +96,7 @@ namespace Image_Importer.Pages
             navigationHelper.OnNavigatedFrom(e);
         }
 
-        #endregion
+        #endregion NavigationHelper registration
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {

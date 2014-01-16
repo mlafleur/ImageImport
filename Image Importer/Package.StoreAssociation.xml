@@ -355,13 +355,15 @@
     </ReservedNames>
   </ProductReservedInfo>
   <AccountPackageIdentityNames>
-    <MainPackageIdentityName>45328MassiveScale.CrossClique</MainPackageIdentityName>
-    <MainPackageIdentityName>45328MassiveScale.Flapp</MainPackageIdentityName>
-    <MainPackageIdentityName>45328MassiveScale.Keyword</MainPackageIdentityName>
-    <MainPackageIdentityName>45328MassiveScale.Keyword4Kids</MainPackageIdentityName>
     <MainPackageIdentityName>45328MassiveScale.MassachusettsRMVInfo</MainPackageIdentityName>
     <MainPackageIdentityName>45328MassiveScale.RMVAwesome</MainPackageIdentityName>
     <MainPackageIdentityName>45328MassiveScale.SocialSuds</MainPackageIdentityName>
   </AccountPackageIdentityNames>
-  <PackageInfoList LandingUrl="https://appdev.microsoft.com:443/StorePortals/Developer/Catalog/ReleaseAnchor/36eaa4f4-64ed-4eab-bfaf-372bc71ff2ce" />
+  <PackageInfoList LandingUrl="https://appdev.microsoft.com:443/StorePortals/Developer/Catalog/ReleaseAnchor/36eaa4f4-64ed-4eab-bfaf-372bc71ff2ce">
+    <PackageInfo>
+      <OsMinVersion>6.3.0.0</OsMinVersion>
+      <PackageArchitecture>neutral</PackageArchitecture>
+      <PackageMaxArchitectureVersion>1.1.0.0</PackageMaxArchitectureVersion>
+    </PackageInfo>
+  </PackageInfoList>
 </StoreAssociation>
