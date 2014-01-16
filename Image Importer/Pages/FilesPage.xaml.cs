@@ -143,8 +143,7 @@ namespace Image_Importer.Pages
 
                 try
                 {
-                    fileInfo.ImageProperties.Title = string.Empty;
-                    await fileInfo.ImageProperties.SavePropertiesAsync();
+
                     if (appSettings.MoveSourceFiles)
                         await fileInfo.MoveAsync(destinationFolder, fileInfo.Name, Windows.Storage.NameCollisionOption.GenerateUniqueName);
                     else
