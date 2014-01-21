@@ -51,17 +51,14 @@ namespace Image_Importer
 
             if (args.Verb == "open")
             {
-                rootFrame.Navigate(typeof(Pages.SingleImagePage), args.Files[0]);
+                rootFrame.Navigate(typeof(Views.SingleImageView), args.Files[0]);
             }
 
             if (args.Verb == "import")
             {
-                Model.DevicesViewModel.ImageDevice imageDevice = new Model.DevicesViewModel.ImageDevice();
-                imageDevice.Title = args.Files[0].Path;
-                imageDevice.Folder = (Windows.Storage.StorageFolder)args.Files[0];
-                await imageDevice.Refresh();
-
-                rootFrame.Navigate(typeof(Pages.FilesPage), imageDevice);
+                var folder = (Windows.Storage.StorageFolder)args.Files[0];
+                Model.ImageDevice imageDevice = Model.ImageDevice.FromFolder(folder);
+                rootFrame.Navigate(typeof(Views.FilesView), imageDevice);
             }
 
             Window.Current.Activate();
@@ -89,12 +86,8 @@ namespace Image_Importer
                 var deviceArgs = args as DeviceActivatedEventArgs;
                 if (deviceArgs != null)
                 {
-                    Model.DevicesViewModel.ImageDevice imageDevice = new Model.DevicesViewModel.ImageDevice();
-                    imageDevice.Title = Windows.Devices.Portable.StorageDevice.FromId(deviceArgs.DeviceInformationId).Name;
-                    imageDevice.Folder = Windows.Devices.Portable.StorageDevice.FromId(deviceArgs.DeviceInformationId);
-                    await imageDevice.Refresh();
-
-                    rootFrame.Navigate(typeof(Pages.FilesPage), imageDevice);
+                    Model.ImageDevice imageDevice = Model.ImageDevice.FromDeviceId(deviceArgs.DeviceInformationId);
+                    rootFrame.Navigate(typeof(Views.FilesView), imageDevice);
                 }
             }
 
@@ -110,7 +103,7 @@ namespace Image_Importer
             SettingsCommand aboutCommand = new SettingsCommand("mainSettings", "Import Settings", (x) =>
             {
                 SettingsFlyout flyout = new SettingsFlyout();
-                flyout.Content = new SettingsMain();
+                flyout.Content = new Views.SettingsMain();
                 flyout.Title = "Import Settings";
                 flyout.Background = new SolidColorBrush(Windows.UI.Colors.DarkGray);
                 flyout.Show();
@@ -167,7 +160,7 @@ namespace Image_Importer
                 // When the navigation stack isn't restored navigate to the first page,
                 // configuring the new page by passing required information as a navigation
                 // parameter
-                if (!rootFrame.Navigate(typeof(Pages.DevicesPage), e.Arguments))
+                if (!rootFrame.Navigate(typeof(Views.DevicesView), e.Arguments))
                 {
                     throw new Exception("Failed to create initial page");
                 }

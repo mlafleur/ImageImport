@@ -106,19 +106,19 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <Page Include="Pages\DevicesPage.xaml">
+    <Page Include="Views\DevicesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\FilesPage.xaml">
+    <Page Include="Views\FilesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\SingleImagePage.xaml">
+    <Page Include="Views\SingleImageView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SettingsMain.xaml">
+    <Page Include="Views\SettingsMain.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -132,6 +132,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Common\BooleanToVisibilityConverter.cs" />
     <Compile Include="Common\NavigationHelper.cs" />
     <Compile Include="Common\ObservableDictionary.cs" />
     <Compile Include="Common\RelayCommand.cs" />
@@ -139,18 +140,21 @@
     <Compile Include="Converters\DateConverter.cs" />
     <Compile Include="Converters\StorageItemThumbnailConverter.cs" />
     <Compile Include="Model\AppSettings.cs" />
-    <Compile Include="Model\DevicesViewModel.cs" />
-    <Compile Include="Pages\DevicesPage.xaml.cs">
-      <DependentUpon>DevicesPage.xaml</DependentUpon>
+    <Compile Include="Model\Devices.cs" />
+    <Compile Include="Model\ImageDevice.cs" />
+    <Compile Include="ViewModels\DevicesViewModel.cs" />
+    <Compile Include="ViewModels\FilesPageViewModel.cs" />
+    <Compile Include="Views\DevicesView.xaml.cs">
+      <DependentUpon>DevicesView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\FilesPage.xaml.cs">
-      <DependentUpon>FilesPage.xaml</DependentUpon>
+    <Compile Include="Views\FilesView.xaml.cs">
+      <DependentUpon>FilesView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\SingleImagePage.xaml.cs">
-      <DependentUpon>SingleImagePage.xaml</DependentUpon>
+    <Compile Include="Views\SingleImageView.xaml.cs">
+      <DependentUpon>SingleImageView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SettingsMain.xaml.cs">
+    <Compile Include="Views\SettingsMain.xaml.cs">
       <DependentUpon>SettingsMain.xaml</DependentUpon>
     </Compile>
   </ItemGroup>

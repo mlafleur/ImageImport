@@ -7,21 +7,23 @@ using Windows.UI.Xaml.Navigation;
 
 // The Items Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234233
 
-namespace Image_Importer.Pages
+namespace Image_Importer.Views
 {
     /// <summary>
     /// A page that displays a collection of item previews.  In the Split Application this page
     /// is used to display and select one of the available groups.
     /// </summary>
-    public sealed partial class FilesPage : Page
+    public sealed partial class FilesView : Page
     {
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
         private NavigationHelper navigationHelper;
         private GridView photoGridInstance;
 
-        private Model.DevicesViewModel.ImageDevice viewModel;
+        private ViewModels.FilesPageViewModel viewModel;
 
-        public FilesPage()
+        //private ViewModels.DevicesViewModel.ImageDevice viewModel;
+
+        public FilesView()
         {
             this.InitializeComponent();
             this.navigationHelper = new NavigationHelper(this);
@@ -45,73 +47,12 @@ namespace Image_Importer.Pages
             get { return this.navigationHelper; }
         }
 
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-        }
-
-        private async void ExecuteImport()
-        {
-            ImportProgressPanel.Visibility = Windows.UI.Xaml.Visibility.Visible;
-
-            ImportProgressBar.Maximum = photoGridInstance.SelectedItems.Count;
-            ImportProgressBar.Value = 0;
-
-            Windows.Storage.StorageFolder destinationFolder = null;
-
-            Model.AppSettings appSettings = new Model.AppSettings();
-
-            if (appSettings.OrgRule == "%DateImported%")
-                destinationFolder =
-                        await Windows.Storage.KnownFolders.PicturesLibrary.CreateFolderAsync(DateTime.Now.ToString("yyyy'-'MM'-'dd"),
-                                                                                           Windows.Storage.CreationCollisionOption.GenerateUniqueName);
-
-            foreach (var item in photoGridInstance.SelectedItems)
-            {
-                var fileInfo = item as Windows.Storage.BulkAccess.FileInformation;
-                var file = Windows.Storage.StorageFile.GetFileFromPathAsync(fileInfo.Path);
-
-                var props = await fileInfo.Properties.GetImagePropertiesAsync();
-                if (appSettings.OrgRule == "%DateTaken%")
-                {
-                    /* In some case I've found images that don't have complete DateTake data. When this happens we go with date created */
-                    string folderName = string.Empty;
-
-                    try
-                    {
-                        folderName = fileInfo.ImageProperties.DateTaken.ToString("yyyy'-'MM'-'dd");
-                    }
-                    catch
-                    {
-                        folderName = fileInfo.DateCreated.ToString("yyyy'-'MM'-'dd");
-                    }
-
-                    destinationFolder =
-                                await Windows.Storage.KnownFolders.PicturesLibrary.CreateFolderAsync(folderName, Windows.Storage.CreationCollisionOption.OpenIfExists);
-                }
-
-                try
-                {
-                    if (appSettings.MoveSourceFiles)
-                        await fileInfo.MoveAsync(destinationFolder, fileInfo.Name, Windows.Storage.NameCollisionOption.GenerateUniqueName);
-                    else
-                        await fileInfo.CopyAsync(destinationFolder, fileInfo.Name, Windows.Storage.NameCollisionOption.GenerateUniqueName);
-
-                    ImportProgressBar.Value = ImportProgressBar.Value + 1;
-                }
-                catch { continue; }
-            }
-
-            photoGridInstance.SelectedIndex = -1;
-            await viewModel.Refresh();
-            this.DefaultViewModel["Items"] = viewModel.Items;
-            ImportProgressPanel.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-        }
-
-        private void ImportAll_Click(object sender, RoutedEventArgs e)
+        private async void ImportAll_Click(object sender, RoutedEventArgs e)
         {
             if (photoGridInstance.Items.Count == 0) return;
             if (photoGridInstance.SelectedItems.Count == 0) photoGridInstance.SelectAll();
-            ExecuteImport();
+
+            await viewModel.ExecuteImport(photoGridInstance.SelectedItems);
         }
 
         /// <summary>
@@ -127,9 +68,8 @@ namespace Image_Importer.Pages
         /// session.  The state will be null the first time a page is visited.</param>
         private void navigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
-            viewModel = (Model.DevicesViewModel.ImageDevice)e.NavigationParameter;
-            this.DefaultViewModel["Items"] = viewModel.Items;
-            this.pageTitle.Text = viewModel.Title;
+            viewModel = this.DataContext as ViewModels.FilesPageViewModel;
+            viewModel.LoadState((Model.ImageDevice)e.NavigationParameter);
         }
 
         #region NavigationHelper registration

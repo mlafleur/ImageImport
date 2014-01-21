@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Image_Importer.Model
+namespace Image_Importer.Models
 {
     public class AppSettings : INotifyPropertyChanged
     {
