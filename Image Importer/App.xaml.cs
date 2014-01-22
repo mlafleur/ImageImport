@@ -35,7 +35,7 @@ namespace Image_Importer
             this.Suspending += OnSuspending;
         }
 
-        protected override async void OnFileActivated(FileActivatedEventArgs args)
+        protected override void OnFileActivated(FileActivatedEventArgs args)
         {
             Frame rootFrame = (Frame)Window.Current.Content;
             if (rootFrame == null)
@@ -66,7 +66,7 @@ namespace Image_Importer
             base.OnFileActivated(args);
         }
 
-        protected async override void OnActivated(IActivatedEventArgs args)
+        protected override void OnActivated(IActivatedEventArgs args)
         {
             Frame rootFrame = (Frame)Window.Current.Content;
             if (rootFrame == null)

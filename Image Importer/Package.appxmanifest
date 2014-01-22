@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
-  <Identity Name="45328MassiveScale.ImageImporter" Publisher="CN=D17C0479-956D-4561-92A8-D153C047F69C" Version="1.1.0.3" />
+  <Identity Name="45328MassiveScale.ImageImporter" Publisher="CN=D17C0479-956D-4561-92A8-D153C047F69C" Version="1.1.0.5" />
   <Properties>
     <DisplayName>Image Importer</DisplayName>
     <PublisherDisplayName>MassiveScale</PublisherDisplayName>
@@ -15,7 +15,7 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="Image_Importer.App">
-      <m2:VisualElements DisplayName="Image Importer" Square150x150Logo="Assets\Logo.png" Square30x30Logo="Assets\SmallLogo.png" Description="Image Importer" ForegroundText="light" BackgroundColor="#83C1FF">
+      <m2:VisualElements DisplayName="Image Importer" Square150x150Logo="Assets\Logo.png" Square30x30Logo="Assets\SmallLogo.png" Description="Image Importer for Windows 8.1" ForegroundText="light" BackgroundColor="#83C1FF">
         <m2:DefaultTile ShortName="Image Importer" DefaultSize="wide310x150Logo" Wide310x150Logo="Assets\WideLogo.png">
           <m2:ShowNameOnTiles>
             <m2:ShowOn Tile="square150x150Logo" />
@@ -62,5 +62,8 @@
     <Capability Name="internetClient" />
     <Capability Name="removableStorage" />
     <Capability Name="picturesLibrary" />
+    <DeviceCapability Name="6BDD1FC6-810F-11D0-BEC7-08002BE2092F" />
+    <DeviceCapability Name="BA0C718F-4DED-49B7-BDD3-FABE28661211" />
+    <DeviceCapability Name="6AC27878-A6FA-4155-BA85-F98F491D4F33" />
   </Capabilities>
 </Package>

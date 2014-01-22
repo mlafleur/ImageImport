@@ -11,7 +11,6 @@ namespace Image_Importer.Model
     public class ImageDevice : System.ComponentModel.INotifyPropertyChanged
     {
         private string _deviceId;
-        private StorageFolder _folder;
         private BitmapImage _image;
         private IReadOnlyList<FileInformation> _items;
         private string _subtitle;
@@ -73,6 +72,7 @@ namespace Image_Importer.Model
             queryOptions.IndexerOption = Windows.Storage.Search.IndexerOption.DoNotUseIndexer;
 
             device.query = folder.CreateFileQueryWithOptions(queryOptions);
+
             device.Title = folder.DisplayName;
             return device;
         }

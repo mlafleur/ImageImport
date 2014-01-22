@@ -12,6 +12,7 @@
       mc:Ignorable="d">
 
     <Page.Resources>
+        <common:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
         <x:String x:Key="ChevronGlyph">&#xE26B;</x:String>
         <converters:StorageItemThumbnailConverter x:Key="StorageItemThumbnailConverter" />
 
@@ -143,7 +144,7 @@
         <Grid Grid.RowSpan="2"
               Background="#7F000000"
               x:Name="ImportProgressPanel"
-              Visibility="Collapsed">
+              Visibility="{Binding IsImporting, Converter={StaticResource BooleanToVisibilityConverter}}">
             <Grid Background="White"
                   Height="200">
                 <TextBlock Text="Importing Photos"
@@ -154,7 +155,9 @@
                 <ProgressBar Height="40"
                              x:Name="ImportProgressBar"
                              VerticalAlignment="Bottom"
-                             Margin="40" />
+                             Margin="40"
+                             Maximum="{Binding ImportingCount}"
+                             Value="{Binding ImportingIndex}" />
             </Grid>
         </Grid>
     </Grid>

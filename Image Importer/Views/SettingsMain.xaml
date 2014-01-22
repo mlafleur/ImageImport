@@ -7,7 +7,7 @@
              x:Class="Image_Importer.Views.SettingsMain"
              mc:Ignorable="d"
              d:DesignHeight="600"
-             d:DesignWidth="267">
+             d:DesignWidth="400">
 
     <UserControl.DataContext>
         <Model:AppSettings />
@@ -18,7 +18,25 @@
 
     <Grid Background="DarkGray">
         <StackPanel>
+            <StackPanel Margin="0,15,0,10">
+                <TextBlock Text="Organize by"
+                           Margin="0,0,0,5"
+                           FontSize="14" />
+                <ComboBox ItemsSource="{Binding ImportExpresionList, Mode=OneWay}"
+                          FontSize="14"
+                          DisplayMemberPath="Value"
+                          SelectedValuePath="Key"
+                          SelectedValue="{Binding ImportExpresion, Mode=TwoWay}" FontFamily="Global User Interface" />
+            </StackPanel>
             <StackPanel Margin="0,15,0,0">
+                <TextBlock Text="Destination Folder"
+                           Margin="0,0,0,10"
+                           FontSize="14" />
+                <HyperlinkButton HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Left" FontFamily="Global User Interface" Foreground="#FFECEEF0" Click="Button_Click">
+                    <TextBlock Text="{Binding FolderPath}" FontFamily="Global User Interface" TextWrapping="Wrap" />
+                </HyperlinkButton>
+            </StackPanel>
+            <StackPanel Margin="0,15,0,0" Visibility="Collapsed">
                 <TextBlock Text="Store Imported Files by"
                            Margin="0,0,0,5"
                            FontSize="14" />
@@ -38,9 +56,6 @@
                               OnContent="On"
                               OffContent="Off"
                               Header="Show All Devices" />
-            </StackPanel>
-
-            <StackPanel>
             </StackPanel>
         </StackPanel>
     </Grid>
