@@ -5,7 +5,7 @@
       xmlns:model="using:Image_Importer.ViewModels"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      xmlns:converters="using:Image_Importer.Converters"
+      xmlns:converters="using:Image_Importer.Common.Converters"
       xmlns:UI="using:Microsoft.Advertising.WinRT.UI"
       x:Name="pageRoot"
       x:Class="Image_Importer.Views.FilesView"
@@ -144,20 +144,26 @@
         <Grid Grid.RowSpan="2"
               Background="#7F000000"
               x:Name="ImportProgressPanel"
-              Visibility="{Binding IsImporting, Converter={StaticResource BooleanToVisibilityConverter}}">
+              Visibility="{Binding Importer.IsImporting, Converter={StaticResource BooleanToVisibilityConverter}}">
             <Grid Background="White"
                   Height="200">
-                <TextBlock Text="Importing Photos"
-                           Foreground="Black"
-                           HorizontalAlignment="Center"
-                           Margin="40"
-                           Style="{StaticResource HeaderTextBlockStyle}" />
-                <ProgressBar Height="40"
-                             x:Name="ImportProgressBar"
-                             VerticalAlignment="Bottom"
-                             Margin="40"
-                             Maximum="{Binding ImportingCount}"
-                             Value="{Binding ImportingIndex}" />
+                <StackPanel VerticalAlignment="Center">
+                    <TextBlock Text="Importing Photos"
+                               Foreground="Black"
+                               HorizontalAlignment="Center"
+                               Margin="0,0,0,20"
+                               Style="{StaticResource HeaderTextBlockStyle}" />
+                    <ProgressBar Height="40"
+                                 x:Name="ImportProgressBar"
+                                 VerticalAlignment="Bottom"
+                                 Maximum="{Binding Importer.ImportingCount}"
+                                 Value="{Binding Importer.ImportingIndex}" />
+                    <TextBlock Text="{Binding Importer.StatusMessage}"
+                               Foreground="Black"
+                               FontSize="11"
+                               Margin="0,10,0,0"
+                               HorizontalAlignment="Center" />
+                </StackPanel>
             </Grid>
         </Grid>
     </Grid>

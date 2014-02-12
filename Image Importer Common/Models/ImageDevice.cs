@@ -6,7 +6,7 @@ using Windows.Storage;
 using Windows.Storage.BulkAccess;
 using Windows.UI.Xaml.Media.Imaging;
 
-namespace Image_Importer.Model
+namespace Image_Importer.Common.Models
 {
     public class ImageDevice : System.ComponentModel.INotifyPropertyChanged
     {

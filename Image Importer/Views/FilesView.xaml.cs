@@ -28,6 +28,13 @@ namespace Image_Importer.Views
             this.InitializeComponent();
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += navigationHelper_LoadState;
+            this.navigationHelper.SaveState += navigationHelper_SaveState;
+        }
+
+        void navigationHelper_SaveState(object sender, SaveStateEventArgs e)
+        {
+            viewModel = this.DataContext as ViewModels.FilesPageViewModel;
+            viewModel.SaveState();
         }
 
         /// <summary>
@@ -51,8 +58,9 @@ namespace Image_Importer.Views
         {
             if (photoGridInstance.Items.Count == 0) return;
             if (photoGridInstance.SelectedItems.Count == 0) photoGridInstance.SelectAll();
-
-            await viewModel.ExecuteImport(photoGridInstance.SelectedItems);
+            await viewModel.Importer.Execute(photoGridInstance.SelectedItems);
+            viewModel.Device.Refresh();
+            //await viewModel.ExecuteImport(photoGridInstance.SelectedItems);
         }
 
         /// <summary>
@@ -69,8 +77,10 @@ namespace Image_Importer.Views
         private void navigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
             viewModel = this.DataContext as ViewModels.FilesPageViewModel;
-            viewModel.LoadState((Model.ImageDevice)e.NavigationParameter);
+            viewModel.LoadState((Common.Models.ImageDevice)e.NavigationParameter);
         }
+
+        
 
         #region NavigationHelper registration
 
@@ -103,7 +113,7 @@ namespace Image_Importer.Views
         private void Settings_Click(object sender, RoutedEventArgs e)
         {
             SettingsFlyout flyout = new SettingsFlyout();
-            flyout.Content = new SettingsMain();
+            flyout.Content = new SettingControls.ImportSettings();
             flyout.Title = "Import Settings";
             flyout.Background = new SolidColorBrush(Windows.UI.Colors.DarkGray);
             flyout.ShowIndependent();

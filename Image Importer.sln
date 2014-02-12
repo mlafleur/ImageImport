@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.20827.3
+VisualStudioVersion = 12.0.30110.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Image Importer", "Image Importer\Image Importer.csproj", "{F6A15FCB-697C-41BD-9EB0-688165CAEAC7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Image Importer Common", "Image Importer Common\Image Importer Common.csproj", "{344593D7-4695-4C94-B79E-3205AC07977E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,22 @@ Global
 		{F6A15FCB-697C-41BD-9EB0-688165CAEAC7}.Release|x86.ActiveCfg = Release|x86
 		{F6A15FCB-697C-41BD-9EB0-688165CAEAC7}.Release|x86.Build.0 = Release|x86
 		{F6A15FCB-697C-41BD-9EB0-688165CAEAC7}.Release|x86.Deploy.0 = Release|x86
+		{344593D7-4695-4C94-B79E-3205AC07977E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{344593D7-4695-4C94-B79E-3205AC07977E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{344593D7-4695-4C94-B79E-3205AC07977E}.Debug|ARM.ActiveCfg = Debug|ARM
+		{344593D7-4695-4C94-B79E-3205AC07977E}.Debug|ARM.Build.0 = Debug|ARM
+		{344593D7-4695-4C94-B79E-3205AC07977E}.Debug|x64.ActiveCfg = Debug|x64
+		{344593D7-4695-4C94-B79E-3205AC07977E}.Debug|x64.Build.0 = Debug|x64
+		{344593D7-4695-4C94-B79E-3205AC07977E}.Debug|x86.ActiveCfg = Debug|x86
+		{344593D7-4695-4C94-B79E-3205AC07977E}.Debug|x86.Build.0 = Debug|x86
+		{344593D7-4695-4C94-B79E-3205AC07977E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{344593D7-4695-4C94-B79E-3205AC07977E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{344593D7-4695-4C94-B79E-3205AC07977E}.Release|ARM.ActiveCfg = Release|ARM
+		{344593D7-4695-4C94-B79E-3205AC07977E}.Release|ARM.Build.0 = Release|ARM
+		{344593D7-4695-4C94-B79E-3205AC07977E}.Release|x64.ActiveCfg = Release|x64
+		{344593D7-4695-4C94-B79E-3205AC07977E}.Release|x64.Build.0 = Release|x64
+		{344593D7-4695-4C94-B79E-3205AC07977E}.Release|x86.ActiveCfg = Release|x86
+		{344593D7-4695-4C94-B79E-3205AC07977E}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

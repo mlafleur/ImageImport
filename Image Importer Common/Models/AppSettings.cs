@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Windows.Storage.AccessCache;
 
-namespace Image_Importer.Models
+namespace Image_Importer.Common.Models
 {
     public class AppSettings : INotifyPropertyChanged
     {

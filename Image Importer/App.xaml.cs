@@ -57,7 +57,7 @@ namespace Image_Importer
             if (args.Verb == "import")
             {
                 var folder = (Windows.Storage.StorageFolder)args.Files[0];
-                Model.ImageDevice imageDevice = Model.ImageDevice.FromFolder(folder);
+                Common.Models.ImageDevice imageDevice = Common.Models.ImageDevice.FromFolder(folder);
                 rootFrame.Navigate(typeof(Views.FilesView), imageDevice);
             }
 
@@ -86,7 +86,7 @@ namespace Image_Importer
                 var deviceArgs = args as DeviceActivatedEventArgs;
                 if (deviceArgs != null)
                 {
-                    Model.ImageDevice imageDevice = Model.ImageDevice.FromDeviceId(deviceArgs.DeviceInformationId);
+                    Common.Models.ImageDevice imageDevice = Common.Models.ImageDevice.FromDeviceId(deviceArgs.DeviceInformationId);
                     rootFrame.Navigate(typeof(Views.FilesView), imageDevice);
                 }
             }
@@ -100,15 +100,15 @@ namespace Image_Importer
 
         public void onCommandsRequested(SettingsPane settingsPane, SettingsPaneCommandsRequestedEventArgs eventArgs)
         {
-            SettingsCommand aboutCommand = new SettingsCommand("mainSettings", "Import Settings", (x) =>
-            {
-                SettingsFlyout flyout = new SettingsFlyout();
-                flyout.Content = new Views.SettingsMain();
-                flyout.Title = "Import Settings";
-                flyout.Background = new SolidColorBrush(Windows.UI.Colors.DarkGray);
-                flyout.Show();
-            });
-            eventArgs.Request.ApplicationCommands.Add(aboutCommand);
+            //SettingsCommand aboutCommand = new SettingsCommand("mainSettings", "Import Settings", (x) =>
+            //{
+            //    SettingsFlyout flyout = new SettingsFlyout();
+            //    flyout.Content = new Views.SettingsMain();
+            //    flyout.Title = "Import Settings";
+            //    flyout.Background = new SolidColorBrush(Windows.UI.Colors.DarkGray);
+            //    flyout.Show();
+            //});
+            //eventArgs.Request.ApplicationCommands.Add(aboutCommand);
 
             SettingsCommand privacyCommand = new SettingsCommand("privacyCommand", "Privacy Policy", (x) =>
             {

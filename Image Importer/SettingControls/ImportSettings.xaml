@@ -1,21 +1,17 @@
-﻿<UserControl xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<UserControl x:Class="Image_Importer.SettingControls.ImportSettings"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="using:Image_Importer.Views"
+             xmlns:local="using:Image_Importer.SettingControls"
+             xmlns:Model="using:Image_Importer.Common.Models"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:Model="using:Image_Importer.Models"
-             x:Class="Image_Importer.Views.SettingsMain"
              mc:Ignorable="d"
-             d:DesignHeight="600"
+             d:DesignHeight="400"
              d:DesignWidth="400">
-
+    
     <UserControl.DataContext>
         <Model:AppSettings />
     </UserControl.DataContext>
-
-    <UserControl.Resources>
-    </UserControl.Resources>
-
     <Grid Background="DarkGray">
         <StackPanel>
             <StackPanel Margin="0,15,0,10">
@@ -26,17 +22,26 @@
                           FontSize="14"
                           DisplayMemberPath="Value"
                           SelectedValuePath="Key"
-                          SelectedValue="{Binding ImportExpresion, Mode=TwoWay}" FontFamily="Global User Interface" />
+                          SelectedValue="{Binding ImportExpresion, Mode=TwoWay}"
+                          FontFamily="Global User Interface" />
             </StackPanel>
             <StackPanel Margin="0,15,0,0">
                 <TextBlock Text="Destination Folder"
                            Margin="0,0,0,10"
                            FontSize="14" />
-                <HyperlinkButton HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Left" FontFamily="Global User Interface" Foreground="#FFECEEF0" Click="Button_Click">
-                    <TextBlock Text="{Binding FolderPath}" FontFamily="Global User Interface" TextWrapping="Wrap" />
+                <HyperlinkButton HorizontalAlignment="Stretch"
+                                 VerticalAlignment="Stretch"
+                                 HorizontalContentAlignment="Left"
+                                 FontFamily="Global User Interface"
+                                 Foreground="#FFECEEF0"
+                                 Click="Button_Click">
+                    <TextBlock Text="{Binding FolderPath}"
+                               FontFamily="Global User Interface"
+                               TextWrapping="Wrap" />
                 </HyperlinkButton>
             </StackPanel>
-            <StackPanel Margin="0,15,0,0" Visibility="Collapsed">
+            <StackPanel Margin="0,15,0,0"
+                        Visibility="Collapsed">
                 <TextBlock Text="Store Imported Files by"
                            Margin="0,0,0,5"
                            FontSize="14" />
@@ -51,11 +56,7 @@
                 <ToggleSwitch IsOn="{Binding MoveSourceFiles, Mode=TwoWay}"
                               OnContent="On"
                               OffContent="Off"
-                              Header="Remove Files After Import" />
-                <ToggleSwitch IsOn="{Binding ShowAllDevices, Mode=TwoWay}"
-                              OnContent="On"
-                              OffContent="Off"
-                              Header="Show All Devices" />
+                              Header="Remove Files After Import" />               
             </StackPanel>
         </StackPanel>
     </Grid>

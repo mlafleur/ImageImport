@@ -8,7 +8,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Media.Imaging;
 
-namespace Image_Importer.Converters
+namespace Image_Importer.Common.Converters
 {
     public class StorageItemThumbnailConverter : IValueConverter
     {

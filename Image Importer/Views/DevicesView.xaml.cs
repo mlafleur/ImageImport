@@ -47,6 +47,13 @@ namespace Image_Importer.Views
             this.InitializeComponent();
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += navigationHelper_LoadState;
+            this.navigationHelper.SaveState += navigationHelper_SaveState;
+        }
+
+        void navigationHelper_SaveState(object sender, SaveStateEventArgs e)
+        {
+            var viewModel = this.DataContext as ViewModels.DevicesViewModel;
+            viewModel.SaveState();
         }
 
         /// <summary>
@@ -62,6 +69,8 @@ namespace Image_Importer.Views
         /// session.  The state will be null the first time a page is visited.</param>
         private void navigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
+            var viewModel = this.DataContext as ViewModels.DevicesViewModel;
+            viewModel.LoadState();
             Refresh();
         }
 

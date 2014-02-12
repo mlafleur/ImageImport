@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Data;
 
-namespace Image_Importer.Converters
+namespace Image_Importer.Common.Converters
 {
     public class DateConverter : IValueConverter
     {

@@ -8,7 +8,7 @@ using Windows.Devices.Enumeration;
 using Windows.Devices.Portable;
 using Windows.UI.Xaml.Media.Imaging;
 
-namespace Image_Importer.Model
+namespace Image_Importer.Common.Models
 {
     public class Devices : System.ComponentModel.INotifyPropertyChanged
     {
@@ -59,7 +59,7 @@ namespace Image_Importer.Model
             {
                 IsRefreshing = true;
 
-                Models.AppSettings appSettings = new Models.AppSettings();
+                Common.Models.AppSettings appSettings = new Common.Models.AppSettings();
 
                 // Get a collection of storage devices
                 DeviceInformationCollection dic = await DeviceInformation.FindAllAsync(StorageDevice.GetDeviceSelector());
