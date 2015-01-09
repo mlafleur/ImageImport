@@ -90,7 +90,7 @@ namespace Image_Importer.Common.Models
         public async void Refresh()
         {
             FileInformationFactory fileFactory = new FileInformationFactory(query, Windows.Storage.FileProperties.ThumbnailMode.PicturesView);
-            Items = await fileFactory.GetFilesAsync(0, 500);
+            Items = await fileFactory.GetFilesAsync(0, 2000);
             Subtitle = Items.Count.ToString() + " Images Found";
         }
 
