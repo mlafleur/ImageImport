@@ -17,7 +17,7 @@
     <PackageCertificateKeyFile>Image Importer_StoreKey.pfx</PackageCertificateKeyFile>
     <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
     <AppxBundlePlatforms>neutral</AppxBundlePlatforms>
-    <PackageCertificateThumbprint>61B99ADA31B6619FE8D580471732541C807B64FE</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>5DEF043973762D4D49366487A375380C2E109C57</PackageCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>

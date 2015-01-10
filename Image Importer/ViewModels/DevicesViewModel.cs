@@ -1,16 +1,7 @@
 ﻿using Image_Importer.Common.Models;
 using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Threading.Tasks;
-using Windows.Devices.Enumeration;
-using Windows.Devices.Portable;
-using Windows.Storage;
-using Windows.Storage.BulkAccess;
 using Windows.UI.ApplicationSettings;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media.Imaging;
 
 namespace Image_Importer.ViewModels
 {
@@ -18,7 +9,6 @@ namespace Image_Importer.ViewModels
     {
         public DevicesViewModel()
         {
-
         }
 
         private Devices _activeDevices = Common.Models.Devices.Current;
@@ -33,7 +23,6 @@ namespace Image_Importer.ViewModels
         {
             SettingsPane.GetForCurrentView().CommandsRequested += OnCommandsRequested;
         }
-
 
         public void SaveState()
         {

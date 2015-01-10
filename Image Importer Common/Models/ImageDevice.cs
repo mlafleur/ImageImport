@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using Windows.Devices.Portable;
 using Windows.Storage;
 using Windows.Storage.BulkAccess;

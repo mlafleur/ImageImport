@@ -1,7 +1,5 @@
 ﻿using Image_Importer.Common.Models;
 using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using Windows.UI.ApplicationSettings;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Imaging;
@@ -12,14 +10,12 @@ namespace Image_Importer.ViewModels
     {
         private Common.Models.ImageDevice _device;
 
-
         public FilesPageViewModel()
         {
             if (Windows.ApplicationModel.DesignMode.DesignModeEnabled)
             {
                 Device = ImageDevice.GetDesignTime("Device 1", "1", "12 Files", new BitmapImage(new Uri("ms-appx://Assets/SplashScreen.scale-100.png")));
             }
-
         }
 
         private Common.ImageHandlers.Importer _importer = new Common.ImageHandlers.Importer();
@@ -29,7 +25,6 @@ namespace Image_Importer.ViewModels
             get { return _importer; }
             private set { _importer = value; }
         }
-        
 
         public Common.Models.ImageDevice Device
         {
@@ -49,7 +44,7 @@ namespace Image_Importer.ViewModels
                 flyout.Background = new Windows.UI.Xaml.Media.SolidColorBrush(Windows.UI.Colors.DarkGray);
                 flyout.Show();
             });
-            eventArgs.Request.ApplicationCommands.Add(aboutCommand);        
+            eventArgs.Request.ApplicationCommands.Add(aboutCommand);
         }
 
         #endregion Settings Page

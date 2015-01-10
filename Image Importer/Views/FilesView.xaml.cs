@@ -31,7 +31,7 @@ namespace Image_Importer.Views
             this.navigationHelper.SaveState += navigationHelper_SaveState;
         }
 
-        void navigationHelper_SaveState(object sender, SaveStateEventArgs e)
+        private void navigationHelper_SaveState(object sender, SaveStateEventArgs e)
         {
             viewModel = this.DataContext as ViewModels.FilesPageViewModel;
             viewModel.SaveState();
@@ -79,8 +79,6 @@ namespace Image_Importer.Views
             viewModel = this.DataContext as ViewModels.FilesPageViewModel;
             viewModel.LoadState((Common.Models.ImageDevice)e.NavigationParameter);
         }
-
-        
 
         #region NavigationHelper registration
 

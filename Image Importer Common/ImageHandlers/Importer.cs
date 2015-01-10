@@ -10,6 +10,8 @@ namespace Image_Importer.Common.ImageHandlers
         private int _importingIndex = 0;
         private bool _isImporting = false;
 
+        private string _statusMessage = "Not Importing";
+
         public int ImportingCount
         {
             get { return _importingCount; }
@@ -28,16 +30,11 @@ namespace Image_Importer.Common.ImageHandlers
             set { _isImporting = value; NotifyPropertyChanged(); }
         }
 
-
-        private string _statusMessage = "Not Importing";
-
         public string StatusMessage
         {
             get { return _statusMessage; }
             set { _statusMessage = value; NotifyPropertyChanged(); }
         }
-
-
 
         public async Task Execute(IList<object> importItems)
         {
@@ -45,7 +42,7 @@ namespace Image_Importer.Common.ImageHandlers
             IsImporting = true;
             ImportingCount = importItems.Count;
             ImportingIndex = 0;
-            
+
             Common.Models.AppSettings appSettings = new Common.Models.AppSettings();
             Windows.Storage.StorageFolder destinationFolder = await appSettings.GetDestinationFolder();
 
@@ -85,8 +82,6 @@ namespace Image_Importer.Common.ImageHandlers
                     importFolder = destinationFolder;
                 else
                     importFolder = await destinationFolder.CreateFolderAsync(importPath, Windows.Storage.CreationCollisionOption.OpenIfExists);
-
-
 
                 try
                 {

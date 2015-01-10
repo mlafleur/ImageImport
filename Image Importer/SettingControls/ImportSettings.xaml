@@ -8,7 +8,7 @@
              mc:Ignorable="d"
              d:DesignHeight="400"
              d:DesignWidth="400">
-    
+
     <UserControl.DataContext>
         <Model:AppSettings />
     </UserControl.DataContext>
@@ -56,7 +56,7 @@
                 <ToggleSwitch IsOn="{Binding MoveSourceFiles, Mode=TwoWay}"
                               OnContent="On"
                               OffContent="Off"
-                              Header="Remove Files After Import" />               
+                              Header="Remove Files After Import" />
             </StackPanel>
         </StackPanel>
     </Grid>
