@@ -2,6 +2,7 @@
 using System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 // The Hub Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=286574
@@ -103,5 +104,15 @@ namespace Image_Importer.Views
         {
             this.Frame.Navigate(typeof(Views.FilesView), e.ClickedItem);
         }
+
+        private void Settings_Click(object sender, RoutedEventArgs e)
+        {
+            SettingsFlyout flyout = new SettingsFlyout();
+            flyout.Content = new SettingControls.DeviceSettings();
+            flyout.Title = "Device Settings";
+            flyout.Background = new SolidColorBrush(Windows.UI.Colors.DarkGray);
+            flyout.ShowIndependent();
+        }
+
     }
 }
