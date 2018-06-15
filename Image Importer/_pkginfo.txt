@@ -1,1 +1,1 @@
-C:\GitHub\ImageImport\Image Importer\bin\ARM\Release\Upload\Image Importer_1.5.3.0\Image Importer_1.5.3.0_x86_x64_arm.appxbundle
+C:\GitHub\ImageImport\Image Importer\bin\ARM\Release\Upload\Image Importer_1.5.5.0\Image Importer_1.5.5.0_x86_x64_arm.appxbundle

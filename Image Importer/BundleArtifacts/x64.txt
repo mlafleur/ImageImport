@@ -1,2 +1,2 @@
-MainPackage=C:\GitHub\ImageImport\Image Importer\bin\x64\Release\Image Importer_1.5.3.0_x64.appx
-SymbolPackage=C:\GitHub\ImageImport\Image Importer\AppPackages\Image Importer_1.5.3.0_Test\Image Importer_1.5.3.0_x64.appxsym
+MainPackage=C:\GitHub\ImageImport\Image Importer\bin\x64\Release\Image Importer_1.5.5.0_x64.appx
+SymbolPackage=C:\GitHub\ImageImport\Image Importer\AppPackages\Image Importer_1.5.5.0_Test\Image Importer_1.5.5.0_x64.appxsym
