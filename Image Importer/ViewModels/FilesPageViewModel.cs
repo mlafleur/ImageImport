@@ -34,18 +34,18 @@ namespace Image_Importer.ViewModels
 
         #region Settings Page
 
-        public void OnCommandsRequested(SettingsPane settingsPane, SettingsPaneCommandsRequestedEventArgs eventArgs)
-        {
-            SettingsCommand aboutCommand = new SettingsCommand("mainSettings", "Import Settings", (x) =>
-            {
-                SettingsFlyout flyout = new SettingsFlyout();
-                flyout.Content = new SettingControls.ImportSettings();
-                flyout.Title = "Import Settings";
-                flyout.Background = new Windows.UI.Xaml.Media.SolidColorBrush(Windows.UI.Colors.DarkGray);
-                flyout.Show();
-            });
-            eventArgs.Request.ApplicationCommands.Add(aboutCommand);
-        }
+        //public void OnCommandsRequested(SettingsPane settingsPane, SettingsPaneCommandsRequestedEventArgs eventArgs)
+        //{
+        //    SettingsCommand aboutCommand = new SettingsCommand("mainSettings", "Import Settings", (x) =>
+        //    {
+        //        SettingsFlyout flyout = new SettingsFlyout();
+        //        flyout.Content = new SettingControls.ImportSettings();
+        //        flyout.Title = "Import Settings";
+        //        flyout.Background = new Windows.UI.Xaml.Media.SolidColorBrush(Windows.UI.Colors.DarkGray);
+        //        flyout.Show();
+        //    });
+        //    eventArgs.Request.ApplicationCommands.Add(aboutCommand);
+        //}
 
         #endregion Settings Page
 
@@ -53,12 +53,12 @@ namespace Image_Importer.ViewModels
         {
             Device = currentDevice;
             Device.Refresh();
-            SettingsPane.GetForCurrentView().CommandsRequested += OnCommandsRequested;
+            //SettingsPane.GetForCurrentView().CommandsRequested += OnCommandsRequested;
         }
 
         public void SaveState()
         {
-            SettingsPane.GetForCurrentView().CommandsRequested -= OnCommandsRequested;
+           // SettingsPane.GetForCurrentView().CommandsRequested -= OnCommandsRequested;
         }
 
         #region INotifyPropertyChanged

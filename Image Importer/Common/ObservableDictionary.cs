@@ -9,7 +9,7 @@ namespace Image_Importer.Common
     /// Implementation of IObservableMap that supports reentrancy for use as a default view
     /// model.
     /// </summary>
-    public class ObservableDictionary : IObservableMap<string, object>
+    public class ObservableDictionary : IObservableMap<string,object>
     {
         private class ObservableDictionaryChangedEventArgs : IMapChangedEventArgs<string>
         {

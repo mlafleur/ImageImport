@@ -87,25 +87,25 @@ namespace Image_Importer
 
         #region Settings Page
 
-        public void onCommandsRequested(SettingsPane settingsPane, SettingsPaneCommandsRequestedEventArgs eventArgs)
-        {
-            //SettingsCommand aboutCommand = new SettingsCommand("mainSettings", "Import Settings", (x) =>
-            //{
-            //    SettingsFlyout flyout = new SettingsFlyout();
-            //    flyout.Content = new Views.SettingsMain();
-            //    flyout.Title = "Import Settings";
-            //    flyout.Background = new SolidColorBrush(Windows.UI.Colors.DarkGray);
-            //    flyout.Show();
-            //});
-            //eventArgs.Request.ApplicationCommands.Add(aboutCommand);
+        //public void onCommandsRequested(SettingsPane settingsPane, SettingsPaneCommandsRequestedEventArgs eventArgs)
+        //{
+        //    //SettingsCommand aboutCommand = new SettingsCommand("mainSettings", "Import Settings", (x) =>
+        //    //{
+        //    //    SettingsFlyout flyout = new SettingsFlyout();
+        //    //    flyout.Content = new Views.SettingsMain();
+        //    //    flyout.Title = "Import Settings";
+        //    //    flyout.Background = new SolidColorBrush(Windows.UI.Colors.DarkGray);
+        //    //    flyout.Show();
+        //    //});
+        //    //eventArgs.Request.ApplicationCommands.Add(aboutCommand);
 
-            SettingsCommand privacyCommand = new SettingsCommand("privacyCommand", "Privacy Policy", (x) =>
-            {
-                Uri location = new Uri("http://massivescale.com/pages/apps/image-importer/image-importer-privacy-policy/");
-                var ignore = Windows.System.Launcher.LaunchUriAsync(location);
-            });
-            eventArgs.Request.ApplicationCommands.Add(privacyCommand);
-        }
+        //    SettingsCommand privacyCommand = new SettingsCommand("privacyCommand", "Privacy Policy", (x) =>
+        //    {
+        //        Uri location = new Uri("http://massivescale.com/pages/apps/image-importer/image-importer-privacy-policy/");
+        //        var ignore = Windows.System.Launcher.LaunchUriAsync(location);
+        //    });
+        //    eventArgs.Request.ApplicationCommands.Add(privacyCommand);
+        //}
 
         #endregion Settings Page
 
@@ -155,7 +155,6 @@ namespace Image_Importer
                 }
             }
 
-            SettingsPane.GetForCurrentView().CommandsRequested += onCommandsRequested;
 
             // Ensure the current window is active
             Window.Current.Activate();

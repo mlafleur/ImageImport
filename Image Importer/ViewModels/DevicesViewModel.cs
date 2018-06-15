@@ -21,28 +21,28 @@ namespace Image_Importer.ViewModels
 
         public void LoadState()
         {
-            SettingsPane.GetForCurrentView().CommandsRequested += OnCommandsRequested;
+            //SettingsPane.GetForCurrentView().CommandsRequested += OnCommandsRequested;
         }
 
         public void SaveState()
         {
-            SettingsPane.GetForCurrentView().CommandsRequested -= OnCommandsRequested;
+           //SettingsPane.GetForCurrentView().CommandsRequested -= OnCommandsRequested;
         }
 
         #region Settings Page
 
-        public void OnCommandsRequested(SettingsPane settingsPane, SettingsPaneCommandsRequestedEventArgs eventArgs)
-        {
-            SettingsCommand aboutCommand = new SettingsCommand("deviceSettings", "Device Settings", (x) =>
-            {
-                SettingsFlyout flyout = new SettingsFlyout();
-                flyout.Content = new SettingControls.DeviceSettings();
-                flyout.Title = "Device Settings";
-                flyout.Background = new Windows.UI.Xaml.Media.SolidColorBrush(Windows.UI.Colors.DarkGray);
-                flyout.Show();
-            });
-            eventArgs.Request.ApplicationCommands.Add(aboutCommand);
-        }
+        //public void OnCommandsRequested(SettingsPane settingsPane, SettingsPaneCommandsRequestedEventArgs eventArgs)
+        //{
+        //    SettingsCommand aboutCommand = new SettingsCommand("deviceSettings", "Device Settings", (x) =>
+        //    {
+        //        SettingsFlyout flyout = new SettingsFlyout();
+        //        flyout.Content = new SettingControls.DeviceSettings();
+        //        flyout.Title = "Device Settings";
+        //        flyout.Background = new Windows.UI.Xaml.Media.SolidColorBrush(Windows.UI.Colors.DarkGray);
+        //        flyout.Show();
+        //    });
+        //    eventArgs.Request.ApplicationCommands.Add(aboutCommand);
+        //}
 
         #endregion Settings Page
 

@@ -45,9 +45,7 @@
                 </Grid>
             </Hub.Header>
 
-            <HubSection Width="440"
-                        Margin="0,0,0,0"
-                        Background="#FF313A42">
+            <HubSection Width="440" HorizontalAlignment="Center" Height="990" VerticalAlignment="Top">
                 <DataTemplate>
                     <Grid>
                         <StackPanel Margin="0,0,0,0">
@@ -86,6 +84,7 @@
                 <DataTemplate>
                     <Grid>
                         <GridView x:Name="itemGridView"
+                                  
                                   AutomationProperties.AutomationId="ItemsGridView"
                                   AutomationProperties.Name="Items"
                                   TabIndex="1"
@@ -125,6 +124,12 @@
                                     </Grid>
                                 </DataTemplate>
                             </GridView.ItemTemplate>
+                            <GridView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <ItemsWrapGrid ScrollViewer.VerticalScrollMode="Auto" ScrollViewer.HorizontalScrollMode="Disabled"/>
+                                </ItemsPanelTemplate>
+                            </GridView.ItemsPanel>
+
                         </GridView>
                     </Grid>
                 </DataTemplate>

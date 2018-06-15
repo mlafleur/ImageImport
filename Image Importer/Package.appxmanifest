@@ -1,67 +1,61 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
-  <Identity Name="45328MassiveScale.ImageImporter" Publisher="CN=MassiveScale" Version="1.1.0.15" />
+<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
+  <Identity Name="45328MassiveScale.ImageImporter" Publisher="CN=D17C0479-956D-4561-92A8-D153C047F69C" Version="1.5.3.0" />
+  <mp:PhoneIdentity PhoneProductId="a22a118a-7da0-495e-a89d-5d4e4e5f5487" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>Image Importer</DisplayName>
     <PublisherDisplayName>MassiveScale</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
-  <Prerequisites>
-    <OSMinVersion>6.3.0</OSMinVersion>
-    <OSMaxVersionTested>6.3.0</OSMaxVersionTested>
-  </Prerequisites>
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
+  </Dependencies>
   <Resources>
     <Resource Language="x-generate" />
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="Image_Importer.App">
-      <m2:VisualElements DisplayName="Image Importer" Square150x150Logo="Assets\Logo.png" Square30x30Logo="Assets\SmallLogo.png" Description="Image Importer for Windows 8.1" ForegroundText="light" BackgroundColor="#83C1FF">
-        <m2:DefaultTile ShortName="Image Importer" DefaultSize="wide310x150Logo" Wide310x150Logo="Assets\WideLogo.png">
-          <m2:ShowNameOnTiles>
-            <m2:ShowOn Tile="square150x150Logo" />
-            <m2:ShowOn Tile="wide310x150Logo" />
-          </m2:ShowNameOnTiles>
-        </m2:DefaultTile>
-        <m2:SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#83C1FF" />
-      </m2:VisualElements>
+      <uap:VisualElements DisplayName="Image Importer" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="Image Importer for Windows 10" BackgroundColor="#83C1FF">
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" ShortName="Image Importer" Square310x310Logo="Assets\LargeTile.png" Square71x71Logo="Assets\SmallTile.png">
+        </uap:DefaultTile>
+        <uap:SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#83C1FF" />
+      </uap:VisualElements>
       <Extensions>
-        <Extension Category="windows.fileTypeAssociation">
-          <FileTypeAssociation Name="image">
-            <Logo>Assets\Icon.png</Logo>
-            <SupportedFileTypes>
-              <FileType>.jpg</FileType>
-              <FileType>.jpeg</FileType>
-              <FileType>.tiff</FileType>
-              <FileType>.png</FileType>
-              <FileType>.bmp</FileType>
-            </SupportedFileTypes>
-          </FileTypeAssociation>
-        </Extension>
-        <Extension Category="windows.fileTypeAssociation">
-          <FileTypeAssociation Name="raw">
-            <Logo>Assets\Icon.png</Logo>
-            <SupportedFileTypes>
-              <FileType>.cr2</FileType>
-              <FileType>.arw</FileType>
-              <FileType>.raw</FileType>
-              <FileType>.orf</FileType>
-              <FileType>.crw</FileType>
-              <FileType>.nrw</FileType>
-            </SupportedFileTypes>
-          </FileTypeAssociation>
-        </Extension>
-        <Extension Category="windows.autoPlayContent">
-          <AutoPlayContent>
-            <LaunchAction Verb="import" ActionDisplayName="Import Photos" ContentEvent="ShowPicturesOnArrival" />
-          </AutoPlayContent>
-        </Extension>
+        <uap:Extension Category="windows.fileTypeAssociation">
+          <uap:FileTypeAssociation Name="image">
+            <uap:SupportedFileTypes>
+              <uap:FileType>.jpg</uap:FileType>
+              <uap:FileType>.jpeg</uap:FileType>
+              <uap:FileType>.tiff</uap:FileType>
+              <uap:FileType>.png</uap:FileType>
+              <uap:FileType>.bmp</uap:FileType>
+            </uap:SupportedFileTypes>
+          </uap:FileTypeAssociation>
+        </uap:Extension>
+        <uap:Extension Category="windows.fileTypeAssociation">
+          <uap:FileTypeAssociation Name="raw">
+            <uap:SupportedFileTypes>
+              <uap:FileType>.cr2</uap:FileType>
+              <uap:FileType>.arw</uap:FileType>
+              <uap:FileType>.raw</uap:FileType>
+              <uap:FileType>.orf</uap:FileType>
+              <uap:FileType>.crw</uap:FileType>
+              <uap:FileType>.nrw</uap:FileType>
+            </uap:SupportedFileTypes>
+          </uap:FileTypeAssociation>
+        </uap:Extension>
+        <uap:Extension Category="windows.autoPlayContent">
+          <uap:AutoPlayContent>
+            <uap:LaunchAction Verb="import" ActionDisplayName="Import Photos" ContentEvent="ShowPicturesOnArrival" />
+          </uap:AutoPlayContent>
+        </uap:Extension>
       </Extensions>
     </Application>
   </Applications>
   <Capabilities>
     <Capability Name="internetClient" />
-    <Capability Name="removableStorage" />
-    <Capability Name="picturesLibrary" />
+    <uap:Capability Name="removableStorage" />
+    <uap:Capability Name="picturesLibrary" />
     <DeviceCapability Name="6BDD1FC6-810F-11D0-BEC7-08002BE2092F" />
     <DeviceCapability Name="BA0C718F-4DED-49B7-BDD3-FABE28661211" />
     <DeviceCapability Name="6AC27878-A6FA-4155-BA85-F98F491D4F33" />

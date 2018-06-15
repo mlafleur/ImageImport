@@ -62,7 +62,6 @@
 
             <HubSection Width="440"
                         Margin="0,0,0,0"
-                        Background="#FF313A42"
                         x:Name="HubSection1">
                 <DataTemplate>
                     <StackPanel Margin="0,0,0,0">
@@ -124,6 +123,11 @@
                                     </Grid>
                                 </DataTemplate>
                             </GridView.ItemTemplate>
+                            <GridView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <ItemsWrapGrid ScrollViewer.VerticalScrollMode="Auto" ScrollViewer.HorizontalScrollMode="Disabled" MaximumRowsOrColumns="3"/>
+                                </ItemsPanelTemplate>
+                            </GridView.ItemsPanel>
                         </GridView>
                     </Grid>
                 </DataTemplate>
