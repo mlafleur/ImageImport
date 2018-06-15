@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="45328MassiveScale.ImageImporter" Publisher="CN=D17C0479-956D-4561-92A8-D153C047F69C" Version="1.5.3.0" />
+  <Identity Name="45328MassiveScale.ImageImporter" Publisher="CN=D17C0479-956D-4561-92A8-D153C047F69C" Version="1.5.5.0" />
   <mp:PhoneIdentity PhoneProductId="a22a118a-7da0-495e-a89d-5d4e4e5f5487" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>Image Importer</DisplayName>

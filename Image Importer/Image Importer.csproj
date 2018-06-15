@@ -17,10 +17,10 @@
     <EnableDotNetNativeCompatibleProfile>true</EnableDotNetNativeCompatibleProfile>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <PackageCertificateKeyFile>Image Importer_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateKeyFile>Image Importer_StoreKey.pfx</PackageCertificateKeyFile>
     <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
     <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
-    <PackageCertificateThumbprint>73611EC7F9E7A9666E89848B9D8920F0BE6EBE70</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>F3A3EFC198E73721C623D9D89F18384AF10B9F5E</PackageCertificateThumbprint>
     <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
     <AppxBundle>Always</AppxBundle>
     <AppInstallerUpdateFrequency>1</AppInstallerUpdateFrequency>
@@ -171,6 +171,7 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <None Include="Image Importer_StoreKey.pfx" />
     <None Include="Image Importer_TemporaryKey.pfx" />
     <None Include="Package.appxmanifest.old">
       <SubType>Designer</SubType>
